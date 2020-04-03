@@ -1,3 +1,4 @@
+import React from 'react'
 /** event 
  * bind this
  * 关于event参数
@@ -34,13 +35,13 @@ class EventDemo extends React.Component {
         })
     }
     // 静态方法 this指向当前实例 不用修改方法的this指向
-    clickHandler2() {
+    clickHandler2 = () => {
         this.setState({
             name: 'ZW'
         })
     }
     // 获取event
-    clickHandler3(event) {
+    clickHandler3 = (event) => {
         event.preventDefault() // 阻止默认行为
         event.stopPropagation() // 阻止冒泡
         console.log(event.target) // 指向当前元素 即当前元素触发
@@ -63,3 +64,5 @@ class EventDemo extends React.Component {
         console.log(event) // 最后追加一个参数 即可接收 event
     }
 }
+
+export default EventDemo
