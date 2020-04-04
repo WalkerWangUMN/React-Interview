@@ -1,19 +1,18 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-/** 组件使用
- * props传递数据
- * props传递函数
- * props类型检查
- */
+import _ from 'lodash'
+
 class Input extends React.Component {
     constructor(props) {
         super(props)
-        this.state = { title: ''}
+        this.state = {
+            title: ''
+        }
     }
     render() {
         return <div>
             <input value={this.state.title} onChange={this.onTitleChange}/>
-            <button onClick={this.onSubmit}>Submit</button>
+            <button onClick={this.onSubmit}>提交</button>
         </div>
     }
     onTitleChange = (e) => {
@@ -22,15 +21,16 @@ class Input extends React.Component {
         })
     }
     onSubmit = () => {
-        const {submitTitle} = this.props
+        const { submitTitle } = this.props
         submitTitle(this.state.title)
+
         this.setState({
             title: ''
         })
     }
 }
-// props类型检查
-Input.PropTypes = {
+// props 类型检查
+Input.propTypes = {
     submitTitle: PropTypes.func.isRequired
 }
 
@@ -39,69 +39,67 @@ class List extends React.Component {
         super(props)
     }
     render() {
-        const {list} = this.props
+        const { list } = this.props
+
         return <ul>{list.map((item, index) => {
-            return  <li key={item.id}>
+            return <li key={item.id}>
                 <span>{item.title}</span>
             </li>
         })}</ul>
     }
-}
-// props类型检查
-List.PropTypes = {
-    list: PropTypes.arrayOf(PropTypes.object).isRequired
-}
 
-class Footer extends React.Component {
-    constructor(props) {
-        super(props)
-    }
-    render() {
-        return <p>
-            {this.props.text}
-            {this.props.length}
-        </p>
-    }
-    componentDidUpdate() {
-        console.log('footer did update')
-    }
+    // 增加 shouldComponentUpdate
     shouldComponentUpdate(nextProps, nextState) {
-        if (nextProps.text !== this.props.text ||
-            nextProps.length !== this.props.length) return true // 可渲染
-        return false // 不重复渲染
+        // _.isEqual 做对象或数组的深度比较 - 一次性递归到底
+        if (_.isEqual(nextProps.list, this.props.list)) return false // 相等 则不重复渲染
+        return true // 不相等 则渲染
     }
-    // React默认: 父组件更新 子组件无条件也更新
-    // 性能优化对React更加重要
-    // shouldComponentUpdate需要的时候才优化
+}
+// props 类型检查
+List.propTypes = {
+    list: PropTypes.arrayOf(PropTypes.object).isRequired
 }
 
 class TodoListDemo extends React.Component {
     constructor(props) {
         super(props)
-        // 数据提升
         this.state = {
             list: [
-                {id: 'id-1', title:'title1'},
-                {id: 'id-2', title:'title2'}
-            ],
-            footerInfo: 'bottom'
+                {id: 'id-1', title: '标题1'},
+                {id: 'id-2', title: '标题2'}
+            ]
         }
     }
     render() {
         return <div>
             <Input submitTitle={this.onSubmitTitle}/>
             <List list={this.state.list}/>
-            <Footer text={this.state.footerInfo} length={this.state.list.length}/>
         </div>
     }
     onSubmitTitle = (title) => {
+        // 正确的用法
         this.setState({
             list: this.state.list.concat({
                 id: `id-${Date.now()}`,
                 title
             })
         })
-    }
- }
 
- export default TodoListDemo
+        // 为了演示 SCU 故意写的错误用法
+        this.state.list.push({
+            id: `id-${Date.now()}`,
+            title
+        })
+        this.setState({
+            list: this.state.list
+        })
+    }
+}
+
+export default TodoListDemo
+
+/** shouldComponentUpdate使用总结
+ * SCU默认返回true 即React默认重新渲染所有子组件
+ * 必须配合不可变值一起使用
+ * 可先不用SCU 有性能问题时再考虑使用
+ */
