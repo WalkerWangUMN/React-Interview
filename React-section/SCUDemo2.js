@@ -2,6 +2,11 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import _ from 'lodash'
 
+/** shouldComponentUpdate使用总结
+ * SCU默认返回true 即React默认重新渲染所有子组件
+ * 必须配合不可变值一起使用
+ * 可先不用SCU 有性能问题时再考虑使用
+ */
 class Input extends React.Component {
     constructor(props) {
         super(props)
@@ -97,9 +102,3 @@ class TodoListDemo extends React.Component {
 }
 
 export default TodoListDemo
-
-/** shouldComponentUpdate使用总结
- * SCU默认返回true 即React默认重新渲染所有子组件
- * 必须配合不可变值一起使用
- * 可先不用SCU 有性能问题时再考虑使用
- */

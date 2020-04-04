@@ -1,5 +1,6 @@
 import React from 'react'
 /** Context
+ * 涉及公共信息 e.g: 主题颜色
  * 应用场景: 最外层定义的state 将数据往下传递的方式
  * 核心API: ThemeContext.Provider ThemeContext.Consumer
  */

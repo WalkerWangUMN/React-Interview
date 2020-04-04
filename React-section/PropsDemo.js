@@ -1,5 +1,12 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+/** React组件通讯
+ * 父子组件通过props通讯
+ * context: 顶层组件向子孙组件发数据通讯
+ * redux
+ * 自定义事件
+ */
+
 /** 组件使用
  * props传递数据
  * props传递函数

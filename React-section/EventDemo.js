@@ -13,11 +13,11 @@ class EventDemo extends React.Component {
     render() {
         // this - 使用bind
         return <p onClick={this.clickHandler1}>
-            {this.this.state.name}
+            {this.state.name}
         </p>
         // this - 使用静态方法
         return <p onClick={this.clickHandler2}>
-            clickHandler2 {this.state.bane}
+            clickHandler2 {this.state.name}
         </p>
         // event
         return <a href="" onClick={this.clickHandler3}> click me </a>
@@ -52,7 +52,7 @@ class EventDemo extends React.Component {
         console.log(event.nativeEvent.target) // 指向当前元素 即当前元素触发
         console.log(event.nativeEvent.currentTarget) // 指向document
 
-        /** event是SyntheticEvent 模拟DOM event所有功能
+        /** event是SyntheticEvent 模拟出来DOM事件所有功能
          * event.nativeEvent是原生事件对象
          * 所有事件都被挂载到document上
          * 和DOM event Vue event不一样
