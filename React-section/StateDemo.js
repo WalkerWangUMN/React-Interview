@@ -1,8 +1,20 @@
 import React from 'react'
 /** setState
  * 不可变值
- * 可能是异步更新
+ * 可能是异步更新: 看是否命中batchUpdate机制 判断isBatchingUpdates(false:同步 true:异步)
  * 可能会被合并
+ */
+
+/** 能命中batchUpdate机制
+ * 生命周期和它调用的函数
+ * React中注册的事件和它调用的函数
+ * React可以管理的入口
+ */
+
+/** 不能命中batchUpdate机制
+ * setTimeout setInterval
+ * 自定义DOM事件
+ * React管不到的入口
  */
 
  // 函数组件 默认没有state
@@ -42,7 +54,8 @@ class StateDemo extends React.Component {
             })
             console.log('count in setTimeout', this.state.count)
         }, 0);
-        
+        // 自己定义的DOM事件 setState是同步的 在componentDidMount中
+
         // 4. state异步更新时 更新前会被合并
         // 传入对象 会被合并(类似Object.assign) 执行结果只有一次 +1
         this.setState({
