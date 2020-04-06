@@ -56,6 +56,12 @@ store.dispatch = function dispatchAndLog(action) {
     console.log('next state', store.getState());
 }
 
+/** react-redux
+ * <Provider>: 从最外部封装了整个应用 向connect传递store
+ * connect: state和action通过props传到原组件中 监听store tree变化 使其包装的原组件可以响应state变化
+ * mapStateToProps mapDispatchtToProps
+ */
+
 /** React-router
  * 路由模式(hash H5 history)
  * 路由配置(动态路由 懒加载)
