@@ -1,6 +1,15 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+/** HOC vs Render Props
+ * HOC: 模式简单 但增加组件层级
+ * Render Props: 代码简洁 学习成本较高
+ * 按需使用
+ */
 
+/**
+ * 定义了Mouose组件 只有获取x y的能力
+ * 通过render prop的方式渲染Mouse组件
+ */
 class Mouse extends React.Component {
     constructor(props) {
         super(props)
@@ -33,14 +42,5 @@ const App = (props) => {
         }/>
     </div>
 }
-/**
- * 定义了Mouose组件 只有获取x y的能力
- * 通过render prop的方式渲染Mouse组件
- */
-export default App
 
-/** HOC vs Render Props
- * HOC: 模式简单 但增加组件层级
- * Render Props: 代码简洁 学习成本较高
- * 按需使用
- */
+export default App

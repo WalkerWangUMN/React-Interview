@@ -1,11 +1,17 @@
 import React from 'react'
 
-/** 函数组件
- * 纯函数 输入props 输入JSX
+/** 纯函数: 返回一个新值(不可变值) 无副作用-不会修改其他值  */
+
+/** 函数组件和class组件区别
+ * 纯函数 输入props 输出JSX
  * 没有实例 没有生命周期 没有state
  * 不能扩展其他方法
  */
 
+/** 受控组件
+ * 表单的值 受state控制
+ * 需要自行监听onChange 更新state
+ */
 /** 非受控组件
  * ref
  * defaultValue defaultChecked

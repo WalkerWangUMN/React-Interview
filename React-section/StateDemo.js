@@ -54,7 +54,7 @@ class StateDemo extends React.Component {
             })
             console.log('count in setTimeout', this.state.count)
         }, 0);
-        // 自己定义的DOM事件 setState是同步的 在componentDidMount中
+        // 自定义的DOM事件 setState是同步的 在componentDidMount中
 
         // 4. state异步更新时 更新前会被合并
         // 传入对象 会被合并(类似Object.assign) 执行结果只有一次 +1

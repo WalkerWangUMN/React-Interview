@@ -8,8 +8,10 @@
  * dispatch(action)
  * reducer -> newState
  * subscribe触发通知
+ *  ↓——————————————————————————————————————————|
+ *  View -> Action -> Dispatch -> Reducer -> State
+ *           ↑——Middleware——|
  */
-
 // 同步action
 export const addTodo = text => {
     // 返回action对象
@@ -20,6 +22,10 @@ export const addTodo = text => {
     }
 }
 
+/** redux进行异步请求
+ * 使用异步action: 在异步中 dispatch action
+ * redux-thunk
+ */
 // 异步action
 export const addTodoAsync = text => {
     // 返回函数 其中有dispatch参数
@@ -54,3 +60,7 @@ store.dispatch = function dispatchAndLog(action) {
  * 路由模式(hash H5 history)
  * 路由配置(动态路由 懒加载)
  */
+/** React-router配置懒加载 
+ * Route里配置path component <Route exact path='/' component={Home}/>
+ * 配合异步加载组件React.lazy React.Suspense 
+*/

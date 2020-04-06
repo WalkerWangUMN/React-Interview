@@ -1,9 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 /** React组件通讯
- * 父子组件通过props通讯
+ * 父子组件通过props通讯: props往子组件传递数据或函数 子组件能调用
  * context: 顶层组件向子孙组件发数据通讯
- * redux
+ * redux: 全局的数据管理
  * 自定义事件
  */
 

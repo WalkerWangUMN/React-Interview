@@ -1,8 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 /** PureComponent和memo
- * PureComponent SCU中实现了浅比较
- * memo 函数组件中的PureComponent
+ * PureComponent实现了浅比较的shouldComponentUpdate 目的是性能优化 要配合不可变值使用
+ * memo函数组件中的PureComponent
  * 大部分情况使用浅比较 尽量不要做深比较
  */
 class Input extends React.Component {

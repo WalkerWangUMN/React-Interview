@@ -1,4 +1,8 @@
 import React from 'react'
+/** 组件公共逻辑的抽离
+ * 高级组件HOC
+ * Render Props
+ */
 
 // 高级组件
 const withMouse = (Component) => {
@@ -37,8 +41,3 @@ const App = (props) => {
 }
 
 export default withMouse(App) // 返回高阶函数
-
-/** 组件公共逻辑的抽离
- * 高级组件HOC
- * Render Props
- */

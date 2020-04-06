@@ -1,10 +1,14 @@
 import React from 'react'
-import { func } from 'prop-types'
 /** event 
  * bind this
  * 关于event参数
  * 传递自定义参数
 */
+/** React事件和DOM事件区别
+ * 所有事件挂载到document上
+ * event不是原生的 是SyntheticEvent合成事件对象
+ * dispatchEvent机制——event对象交由对应的处理器执行
+ */
 
 /** event是SyntheticEvent合成事件 模拟出来DOM事件所有功能
  * event.nativeEvent是原生事件对象
