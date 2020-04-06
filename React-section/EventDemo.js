@@ -18,7 +18,7 @@ import React from 'react'
 
 /** Why SyntheticEvent
  * 更好的兼容性和跨平台
- * 载到document 减少内存消耗 避免频繁解绑
+ * 挂载到document 减少内存消耗 避免频繁解绑
  * 方便事件统一管理 (e.g:事务机制)
  */
 
