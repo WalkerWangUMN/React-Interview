@@ -63,7 +63,7 @@ store.dispatch = function dispatchAndLog(action) {
  */
 
 /** React-router
- * 路由模式(hash H5 history)
+ * 路由模式(hash模式 H5 history模式: 需要server端支持)
  * 路由配置(动态路由 懒加载)
  */
 /** React-router配置懒加载 
