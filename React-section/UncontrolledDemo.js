@@ -9,7 +9,7 @@ import React from 'react'
  */
 
 /** 受控组件
- * 表单的值 受state控制
+ * 表单的值受state控制
  * 需要自行监听onChange 更新state
  */
 /** 非受控组件

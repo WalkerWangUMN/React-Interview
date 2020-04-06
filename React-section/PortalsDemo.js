@@ -7,7 +7,7 @@ import ReactDOM from 'react-dom'
 /** Portals使用场景
  * overflow: hidden
  * 父组件z-index值太小
- * fixed要放咋子body第一层级
+ * fixed要放在body第一层级
  */
 class App extends React.Component {
     constructor(props) {
