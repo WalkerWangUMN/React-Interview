@@ -5,6 +5,10 @@ import PropTypes from 'prop-types'
  * Render Props: 代码简洁 学习成本较高
  * 按需使用
  */
+/** RenderProps核心思想
+ * 通过一个函数将class组件的state作props传递给纯函数组件
+ */
+
 
 /**
  * 定义了Mouose组件 只有获取x y的能力

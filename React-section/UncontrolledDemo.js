@@ -20,7 +20,7 @@ import React from 'react'
 /** 使用场景
  * 必须手动操作DOM元素 setState实现不了
  * 文件上传<input type='file'/>
- * 富文本编译器 需要传入DOM元素
+ * 副文本编译器 需要传入DOM元素
  */
 /** 受控组件vs非受控组件
  * 优先使用受控组件 符合React设计原理
